@@ -1,0 +1,35 @@
+nohup: ignoring input
+Server closed the connection: 0 bytes read on a total of 8 expected bytes
+Server closed the connection: 0 bytes read on a total of 8 expected bytes
+Error executing high-level request after reconnect: <class 'sqlite3.OperationalError'>: database is locked
+Unhandled exception from keepalive_handle after cancelling <class '_asyncio.Task'> (<Task finished name='Task-7' coro=<UpdateMethods._keepalive_loop() done, defined at /usr/local/python/3.12.1/lib/python3.12/site-packages/telethon/client/updates.py:516> exception=OperationalError('database is locked')>)
+Traceback (most recent call last):
+  File "/usr/local/python/3.12.1/lib/python3.12/site-packages/telethon/helpers.py", line 176, in _cancel
+    await task
+  File "/usr/local/python/3.12.1/lib/python3.12/site-packages/telethon/client/updates.py", line 552, in _keepalive_loop
+    await self._save_states_and_entities()
+  File "/usr/local/python/3.12.1/lib/python3.12/site-packages/telethon/client/telegrambaseclient.py", line 709, in _save_states_and_entities
+    self.session.process_entities(
+  File "/usr/local/python/3.12.1/lib/python3.12/site-packages/telethon/sessions/sqlite.py", line 318, in process_entities
+    c.executemany(
+sqlite3.OperationalError: database is locked
+Unhandled exception from keepalive_handle after cancelling <class '_asyncio.Task'> (<Task finished name='Task-7' coro=<UpdateMethods._keepalive_loop() done, defined at /usr/local/python/3.12.1/lib/python3.12/site-packages/telethon/client/updates.py:516> exception=OperationalError('database is locked')>)
+Traceback (most recent call last):
+  File "/usr/local/python/3.12.1/lib/python3.12/site-packages/telethon/helpers.py", line 176, in _cancel
+    await task
+sqlite3.OperationalError: database is locked
+🔄 Iniciando clonador en tiempo real...
+📡 Escuchando: @tuhogarfelizgye
+📤 Publicando en: @llegolamerca
+💰 Aumento: 30% solo para precios con $ (redondeo arriba)
+
+🔐 Iniciando sesión...
+✅ Sesión iniciada. Esperando mensajes...
+
+❌ Error en el cliente: database is locked
+💥 Error fatal: database is locked
+
+🔴 Presiona ENTER para cerrar...Traceback (most recent call last):
+  File "/workspaces/telegram/clonar.v2.py", line 123, in <module>
+    input("\n🔴 Presiona ENTER para cerrar...")
+OSError: [Errno 9] Bad file descriptor
