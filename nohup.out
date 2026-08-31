@@ -33,3 +33,39 @@ sqlite3.OperationalError: database is locked
   File "/workspaces/telegram/clonar.v2.py", line 123, in <module>
     input("\n🔴 Presiona ENTER para cerrar...")
 OSError: [Errno 9] Bad file descriptor
+ * Serving Flask app 'app'
+ * Debug mode: off
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.0.11.81:5000
+Press CTRL+C to quit
+127.0.0.1 - - [29/Aug/2026 17:52:53] "GET /status HTTP/1.1" 200 -
+127.0.0.1 - - [29/Aug/2026 17:52:58] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [29/Aug/2026 17:52:59] "GET /status HTTP/1.1" 200 -
+127.0.0.1 - - [29/Aug/2026 17:53:04] "GET /status HTTP/1.1" 200 -
+127.0.0.1 - - [29/Aug/2026 17:53:06] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [29/Aug/2026 17:53:06] "GET /status HTTP/1.1" 200 -
+127.0.0.1 - - [29/Aug/2026 17:53:09] "GET /status HTTP/1.1" 200 -
+127.0.0.1 - - [29/Aug/2026 17:53:14] "GET /status HTTP/1.1" 200 -
+127.0.0.1 - - [29/Aug/2026 17:53:19] "GET /status HTTP/1.1" 200 -
+127.0.0.1 - - [29/Aug/2026 17:53:24] "GET /status HTTP/1.1" 200 -
+127.0.0.1 - - [29/Aug/2026 17:53:27] "GET /status HTTP/1.1" 200 -
+127.0.0.1 - - [29/Aug/2026 17:53:29] "GET /status HTTP/1.1" 200 -
+127.0.0.1 - - [29/Aug/2026 17:53:34] "GET /status HTTP/1.1" 200 -
+127.0.0.1 - - [29/Aug/2026 17:53:39] "GET /status HTTP/1.1" 200 -
+127.0.0.1 - - [29/Aug/2026 17:53:44] "GET /status HTTP/1.1" 200 -
+127.0.0.1 - - [29/Aug/2026 17:53:49] "GET /status HTTP/1.1" 200 -
+127.0.0.1 - - [29/Aug/2026 17:53:54] "GET /status HTTP/1.1" 200 -
+127.0.0.1 - - [29/Aug/2026 17:53:59] "GET /status HTTP/1.1" 200 -
+127.0.0.1 - - [29/Aug/2026 17:54:04] "GET /status HTTP/1.1" 200 -
+127.0.0.1 - - [29/Aug/2026 17:54:09] "GET /status HTTP/1.1" 200 -
+127.0.0.1 - - [29/Aug/2026 17:54:27] "GET /status HTTP/1.1" 200 -
+127.0.0.1 - - [29/Aug/2026 17:54:27] "GET /status HTTP/1.1" 200 -
+127.0.0.1 - - [29/Aug/2026 17:55:22] "GET /status HTTP/1.1" 200 -
+127.0.0.1 - - [29/Aug/2026 17:55:24] "GET /status HTTP/1.1" 200 -
+127.0.0.1 - - [29/Aug/2026 17:55:27] "POST /stop HTTP/1.1" 200 -
+127.0.0.1 - - [29/Aug/2026 17:55:27] "GET /status HTTP/1.1" 200 -
+127.0.0.1 - - [29/Aug/2026 17:55:27] "GET /status HTTP/1.1" 200 -
+127.0.0.1 - - [29/Aug/2026 17:55:29] "GET /status HTTP/1.1" 200 -
+127.0.0.1 - - [29/Aug/2026 17:55:33] "GET /status HTTP/1.1" 200 -
