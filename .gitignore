@@ -1,0 +1,5 @@
+*.session
+*.session-journal
+nohup.out
+bot.pid
+__pycache__/
