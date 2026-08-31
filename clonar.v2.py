@@ -1,12 +1,9 @@
-cat > clonar.v2.py << 'EOF'
 #!/usr/bin/env python3
 import asyncio
 import re
 from telethon import TelegramClient, events
 from telethon.errors import FloodWaitError
 
-# ========== CONFIGURACIÓN ==========
-# Valores fijos para bots (NO los cambies)
 API_ID = 6
 API_HASH = "eb06d4abfb49dc3eeb1aeb98ae0f581e"
 BOT_TOKEN = "8521854091:AAEa2Yyc3mNmz4rNYWmiuDJsylwg8BpLBsI"
@@ -73,4 +70,3 @@ if __name__ == "__main__":
         print("\n🛑 Bot detenido por el usuario")
     except Exception as e:
         print(f"❌ Error fatal: {e}")
-EOF
