@@ -1,11 +1,16 @@
+cat > railway.json << 'EOF'
 {
-  "$schema": "https://railway.app/railway.schema.json",
   "build": {
-    "builder": "NIXPACKS"
+    "builder": "NIXPACKS",
+    "buildCommand": "pip install -r requirements.txt"
   },
   "deploy": {
     "startCommand": "python3 clonar.v2.py",
     "restartPolicyType": "ON_FAILURE",
     "restartPolicyMaxRetries": 10
+  },
+  "env": {
+    "PYTHON_VERSION": "3.12.6"
   }
 }
+EOF
