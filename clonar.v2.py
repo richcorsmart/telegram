@@ -1,8 +1,12 @@
 #!/usr/bin/env python3
 import asyncio
 import re
+import sys
 from telethon import TelegramClient, events
 from telethon.errors import FloodWaitError
+
+# Forzar que Python muestre logs inmediatamente
+sys.stdout.reconfigure(line_buffering=True)
 
 API_ID = 6
 API_HASH = "eb06d4abfb49dc3eeb1aeb98ae0f581e"
@@ -27,10 +31,10 @@ def aumentar_precios(texto):
     return re.sub(patron, reemplazo, texto)
 
 async def main():
-    print("🔄 Iniciando clonador...")
-    print(f"📡 Origen: {SOURCE}")
-    print(f"📤 Destino: {DEST}")
-    print(f"💰 Aumento: {INCREMENTO}%")
+    print("🔄 Iniciando clonador...", flush=True)
+    print(f"📡 Origen: {SOURCE}", flush=True)
+    print(f"📤 Destino: {DEST}", flush=True)
+    print(f"💰 Aumento: {INCREMENTO}%", flush=True)
     
     client = TelegramClient('bot', API_ID, API_HASH)
     await client.start(bot_token=BOT_TOKEN)
@@ -41,17 +45,21 @@ async def main():
             texto = event.message.text
             if not texto:
                 return
-            print(f"\n📩 Mensaje: {texto[:50]}...")
+            print(f"\n📩 Mensaje: {texto[:50]}...", flush=True)
             nuevo = aumentar_precios(texto)
             await client.send_message(DEST, nuevo)
-            print(f"✅ Enviado a {DEST}")
+            print(f"✅ Enviado a {DEST}", flush=True)
         except Exception as e:
-            print(f"❌ Error: {e}")
+            print(f"❌ Error: {e}", flush=True)
     
     me = await client.get_me()
-    print(f"✅ Conectado como: @{me.username}")
-    print("👂 Esperando mensajes...\n")
+    print(f"✅ Conectado como: @{me.username}", flush=True)
+    print("👂 Esperando mensajes...\n", flush=True)
+    
     await client.run_until_disconnected()
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    try:
+        asyncio.run(main())
+    except KeyboardInterrupt:
+        print("\n🛑 Bot detenido", flush=True)
