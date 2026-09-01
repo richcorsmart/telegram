@@ -5,12 +5,8 @@ import os
 from telethon import TelegramClient, events
 from telethon.errors import FloodWaitError
 
-# Configuración desde variables de entorno
-BOT_TOKEN = os.environ.get("BOT_TOKEN")
-if not BOT_TOKEN:
-    print("❌ ERROR: BOT_TOKEN no configurado")
-    exit(1)
-
+# ========== CONFIGURACIÓN DIRECTA ==========
+BOT_TOKEN = "8521854091:AAEa2Yyc3mNmz4rNYWmiuDJsylwg8BpLBsI"  # Token quemado
 API_ID = 6
 API_HASH = "eb06d4abfb49dc3eeb1aeb98ae0f581e"
 SOURCE = "@tuhogarfelizgye"
@@ -59,7 +55,7 @@ async def main():
                 await client.send_message(DEST, texto)
                 print(f"✅ Mensaje reenviado a {DEST}")
         except FloodWaitError as e:
-            print(f"⏳ FloodWait: Esperar {e.seconds} segundos")
+            print(f"⏳ Esperar {e.seconds} segundos")
             await asyncio.sleep(e.seconds)
         except Exception as e:
             print(f"❌ Error: {e}")
@@ -71,11 +67,12 @@ async def main():
         print("👂 Esperando mensajes...\n")
         await client.run_until_disconnected()
     except FloodWaitError as e:
-        print(f"⏳ Telegram pide esperar {e.seconds} segundos")
-        print("🔄 Esperando antes de reintentar...")
+        print(f"⏳ FloodWait: Esperar {e.seconds} segundos")
         await asyncio.sleep(e.seconds)
         print("✅ Espera completada, reintentando...")
         await main()
+    except Exception as e:
+        print(f"❌ Error al iniciar: {e}")
 
 if __name__ == "__main__":
     try:
