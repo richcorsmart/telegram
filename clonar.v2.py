@@ -2,17 +2,32 @@
 import asyncio
 import re
 import os
+import threading
 from telethon import TelegramClient, events
 from telethon.errors import FloodWaitError
+from flask import Flask
 
-# ========== CONFIGURACIÓN DIRECTA ==========
-BOT_TOKEN = "8521854091:AAEa2Yyc3mNmz4rNYWmiuDJsylwg8BpLBsI"  # Token quemado
+# ========== CONFIGURACIÓN ==========
+BOT_TOKEN = "8521854091:AAEa2Yyc3mNmz4rNYWmiuDJsylwg8BpLBsI"
 API_ID = 6
 API_HASH = "eb06d4abfb49dc3eeb1aeb98ae0f581e"
-SOURCE = "@tuhogarfelizgye"
-DEST = "@llegolamerca"
+SOURCE = "@tuhogarfelizgye"  # <--- VERIFICA ESTE NOMBRE
+DEST = "@llegolamerca"       # <--- VERIFICA ESTE NOMBRE
 INCREMENTO = 30
 
+# ========== SERVIDOR WEB ==========
+app = Flask(__name__)
+
+@app.route('/')
+def health():
+    return "OK", 200
+
+def run_flask():
+    app.run(host='0.0.0.0', port=8080)
+
+threading.Thread(target=run_flask, daemon=True).start()
+
+# ========== BOT ==========
 def aumentar_precios(texto):
     if not texto:
         return texto
@@ -66,11 +81,6 @@ async def main():
         print(f"✅ Conectado como: @{me.username} (Bot)")
         print("👂 Esperando mensajes...\n")
         await client.run_until_disconnected()
-    except FloodWaitError as e:
-        print(f"⏳ FloodWait: Esperar {e.seconds} segundos")
-        await asyncio.sleep(e.seconds)
-        print("✅ Espera completada, reintentando...")
-        await main()
     except Exception as e:
         print(f"❌ Error al iniciar: {e}")
 
